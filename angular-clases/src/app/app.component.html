@@ -1,0 +1,111 @@
+<h1>component intractions</h1>
+<app-signup [name]="myName" from="appComponent"></app-signup>
+
+<button (click)="nameChanges()">name change</button>
+
+                     
+<h1>welcome to Angular</h1>
+
+<a   href="/login"> goto login </a>
+<a  href="/signup">goto signup </a>
+
+<router-outlet></router-outlet>
+<h1> Event Binding</h1>
+<h1>count is : {{count }} which is {{count%2 === 0 ? 'even' : 'odd'}} number</h1>
+<button (click)="counter('inc')" class="incBtn">increment</button>
+
+<button (click)="counter('dec')">decrement</button>
+
+<!-- <img src="{{imgUrl}}" alt=""> -->
+
+<h1>property binding with for loop</h1>
+<img  [src]="imgUrl" alt="">
+<div *ngFor="let img of imagesList">
+    <button (click)="selectedImage(img.imgUrl)" *ngIf="img.show">{{img.name}}</button>
+</div>
+
+<h1>property binding 2</h1>
+<img  [src]="imgUrl" alt="">
+<!-- <div *ngFor="let img of imagesList">
+    <button (click)="selectedImage(img.imgUrl)" *ngIf="img.show">{{img.name}}</button>
+</div> -->
+<h1>Class binding</h1>
+<h2 [class.secondaryHeading]="obj.color === 'red'" class="heading">class binding example</h2>
+<div *ngFor=" let student of cardsList">
+    <div class="studentCard" [class]= "student.color" >
+        <h2 [ngClass]="student.color">{{student.value}}</h2>
+        <h1>{{student.title}}</h1>
+    </div>
+</div>
+
+<h1>style binding</h1>
+<div [style.color]="'orange'">hellow world</div>
+<div [style.color]="styleColor">style binding value</div>
+<div [ngStyle]="stylesObj">multiple stykes example</div>
+
+<h1>directves</h1>
+<ul>
+    <li>attributal directived</li>
+    <ul>
+        <li>ngClass
+            <div>
+                <h2 [ngClass]="obj.color === 'whilte' ? 'secondaryHeading' : 'primaryColor'" class="heading">
+                    class binding example
+                </h2>
+            </div>
+        </li>
+        <li>ngStyle
+            <div [ngStyle]="stylesObj">multiple stykes example</div>
+        </li>
+    </ul>
+    <li>strutural directives directived</li>
+    <ul>
+        <li>ngIf</li>
+        <li>ngFor</li>
+        <li>ngSwitch</li>
+    </ul>
+</ul>
+
+
+<h1>structural  directives</h1>
+<button (click)="showBlockClicked()">clicked</button>
+<h2>ngIf</h2>
+<div *ngIf="showBlock; else elseBlock">
+    <div>this is if block</div>
+</div>
+<ng-template #elseBlock >
+    <div>this is else  block</div>
+</ng-template>
+
+<div *ngIf="showBlock">
+    <div>this is if block</div>
+</div>
+<div *ngIf="!showBlock">
+    <div>this is else  block 2</div>
+</div>
+
+<div *ngIf="showBlock;then ifBlock3 else elseBlock3"></div>
+<ng-template #ifBlock3>this is if block 3</ng-template>
+<ng-template #elseBlock3>
+    <div>this is else  block 3</div>
+</ng-template>
+
+<h1>ngSwtich</h1>
+<div *ngFor="let name of namesList; let i=index; let first= first;let last=last">
+    <button (click)="nameSelected(name)">{{name + ' ' + (i+1)}} {{first}} {{last}}</button>
+</div>
+<div [ngSwitch]="selectedValue">
+    <div *ngSwitchCase="'ajay'">i am ajay and from andhra</div>
+    <div *ngSwitchCase="'vijay'">i am vijay and from bengalore</div>
+    <div *ngSwitchCase="'john'">i am john and from telanagana</div>
+    <div *ngSwitchDefault>this is default block</div>
+</div>
+
+
+
+
+<h2>basics of angular</h2>
+<li>angular</li>
+
+<button (click)="login()"> goto login </button>
+<button  (click)="signup()">goto signup </button>
