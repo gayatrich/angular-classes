@@ -1,4 +1,4 @@
-import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
 
 @Component({
   selector: 'app-signup',
@@ -13,6 +13,7 @@ export class SignupComponent implements OnInit {
     this.getUserDetails(val);
   };
   @Input() from!:string;
+  @Output() childClicked = new EventEmitter();
   //  if same values comes again  
   constructor(){
     console.log(" i am constructor");
@@ -20,6 +21,10 @@ export class SignupComponent implements OnInit {
 
   getUserDetails(name:string){
     console.log("getting uswer details", name)
+  }
+
+  clicked(){
+    this.childClicked.emit("hii child clicked");
   }
 
   // ngOnChanges(changes: SimpleChanges): void {
