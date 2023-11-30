@@ -1,5 +1,5 @@
 <h1>component intractions</h1>
-<app-signup [name]="myName" from="appComponent"></app-signup>
+<app-signup [name]="myName" from="appComponent" (childClicked)="childClick($event)"></app-signup>
 
 <button (click)="nameChanges()">name change</button>
 

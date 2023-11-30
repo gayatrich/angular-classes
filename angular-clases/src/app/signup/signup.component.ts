@@ -24,7 +24,7 @@ export class SignupComponent implements OnInit {
   }
 
   clicked(){
-    this.childClicked.emit("hii child clicked");
+    this.childClicked.emit({name:"abc", desc: "sfsd"});
   }
 
   // ngOnChanges(changes: SimpleChanges): void {

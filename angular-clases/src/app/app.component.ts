@@ -59,6 +59,10 @@ export class AppComponent {
     this.myName = names;
   }
 
+  childClick(data:any){
+    console.log("in parent ", data )
+  }
+
   showBlockClicked(){
     this.showBlock = !this.showBlock;
   }
